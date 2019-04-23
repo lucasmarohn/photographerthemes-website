@@ -1,0 +1,85 @@
+.content__section
+  display: block
+  position: relative
+  padding: 7.5rem 2rem
+  text-align: center
+  @media screen and (min-width: $desktop)
+    > .container
+      max-width: 98rem
+      margin-left: auto
+      margin-right: auto
+
+.section--highlight
+  background: rgba(0,0,0,.02)
+
+.content__meta
+  text-align: center
+  max-width: 75%
+  @media screen and (min-width: $desktop)
+    max-width: 50%
+  margin: auto
+
+.col--one
+  max-width: 88rem
+  text-align: center
+  margin: auto
+  > *:last-child
+    margin-bottom: 0
+
+.col--multi
+  display: grid
+  grid-template-columns: 1fr
+  grid-gap: 2.5rem
+  max-width: 88rem
+  margin: 5rem auto
+  &.col--three
+    grid-template-rows: 1fr 1fr 1fr
+    @media screen and (min-width: $tablet)
+      grid-template-columns: 1fr 1fr 1fr
+      grid-template-rows: none
+
+.col--single
+  grid-area: auto
+
+.card--feature
+  text-align: center
+  @media screen and (max-width: $tablet)
+    padding: 0 15%
+
+.card__image
+  width: 7.5rem
+  height: 7.5rem
+  border-radius: 7.5rem
+  display: inline-block
+  background: #DDDDDD
+  margin-bottom: 2.5rem
+
+
+.content__feature
+  background: #333333
+  padding: 2.5rem
+  color: #FFFFFF
+  text-align: center
+  @media screen and (min-width: $tablet)
+    padding: 5rem
+  form
+    display: flex
+    flex-direction: row
+    justify-content: stretch
+    width: 100%
+    margin: 2.5rem 0 0 0
+  input[type="text"]
+    padding: 1.5rem
+    border: 0
+    flex-grow: 1
+    border-top-left-radius: var(--border--radius)
+    border-bottom-left-radius: var(--border--radius)
+    font-size: 1.6rem
+  input[type="submit"]
+    background: var(--color--primary)
+    border-top-right-radius: var(--border--radius)
+    border-bottom-right-radius: var(--border--radius)
+    padding: 2rem 2rem
+    color: #FFFFFF
+    border: 0
+    font-size: 1.6rem
