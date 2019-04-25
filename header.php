@@ -25,26 +25,33 @@
 	</head>
 	<body <?php body_class(); ?>>
 
-		<!-- wrapper -->
-		<div class="wrapper">
+	<header>
+		<nav class="nav--top" role="navigation">
+			<a href="<?php echo get_home_url(); ?>" class="logo"><strong>Photographer</strong>Themes</a>
 
-			<!-- header -->
-			<header class="header clear" role="banner">
+			<?php if ( have_rows( 'navigation_items', 'option' ) ) : ?>
+			<ul class="nav__list">
+				<?php while ( have_rows( 'navigation_items', 'option' ) ) : the_row(); ?>
+					<li class="nav__item">
 
-					<!-- logo -->
-					<div class="logo">
-						<a href="<?php echo home_url(); ?>">
-							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
-							<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img">
-						</a>
-					</div>
-					<!-- /logo -->
+						<?php $navigation_link = get_sub_field( 'navigation_link' ); ?>
+						<?php if ( $navigation_link ) { ?>
+							<a class="nav__link <?php if ( get_sub_field( 'highlight_link' ) == 1 ) { echo 'nav__link--cta'; } ?>" href="<?php echo $navigation_link['url']; ?>" target="<?php echo $navigation_link['target']; ?>"><?php echo $navigation_link['title']; ?></a>
+						<?php } ?>
+						
+						
+					</li>
+				<?php endwhile; ?>
+			</ul>
+			<?php endif; ?>
+		</nav>
 
-					<!-- nav -->
-					<nav class="nav" role="navigation">
-						<?php html5blank_nav(); ?>
-					</nav>
-					<!-- /nav -->
-
-			</header>
-			<!-- /header -->
+		<?php if( is_page('features') ) : ?>
+		<nav class="subnav--top">
+			<ul class="subnav__list">
+				<li class="subnav__item current_page_item"><a href="#0" class="subnav__link">Magnesium</a></li>
+				<li class="subnav__item"><a href="#0" class="subnav__link">Sharpen</a></li>
+			</ul>
+		</nav>
+		<?php endif; ?>
+	</header>

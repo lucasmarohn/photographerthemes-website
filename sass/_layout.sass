@@ -3,6 +3,10 @@
   position: relative
   padding: 7.5rem 2rem
   text-align: center
+  display: flex
+  flex-direction: column
+  justify-content: center
+  width: 100%
   @media screen and (min-width: $desktop)
     > .container
       max-width: 98rem
@@ -12,12 +16,22 @@
 .section--highlight
   background: rgba(0,0,0,.02)
 
+.section--darken
+  background: #333333
+  > * 
+    color: #FFFFFF
+
+img
+  max-width: 100%
+  height: auto
+  display: block
+
 .content__meta
   text-align: center
   max-width: 75%
   @media screen and (min-width: $desktop)
     max-width: 50%
-  margin: auto
+  margin: 0 auto 7.5rem auto
 
 .col--one
   max-width: 88rem
@@ -26,17 +40,39 @@
   > *:last-child
     margin-bottom: 0
 
-.col--multi
+
+.col--multi,.col--full
   display: grid
   grid-template-columns: 1fr
-  grid-gap: 2.5rem
-  max-width: 88rem
-  margin: 5rem auto
-  &.col--three
-    grid-template-rows: 1fr 1fr 1fr
+  grid-gap: 7.5rem
+  &.col--2
+    @media screen and (min-width: $tablet)
+      grid-template-columns: 1fr 1fr
+  &.col--3
+    grid-template-columns: 1fr
     @media screen and (min-width: $tablet)
       grid-template-columns: 1fr 1fr 1fr
       grid-template-rows: none
+  &.col--4
+    grid-template-columns: 1fr
+    @media screen and (min-width: $tablet)
+      grid-template-columns: 1fr 1fr
+
+.col--multi 
+  max-width: 98rem
+  margin: 5rem auto
+  @media screen and (min-width: $tablet)
+    grid-gap: 5rem
+  @media screen and (min-width: $desktop)
+    grid-gap: 7.5rem
+
+.col--full
+  width: 100% 
+  max-width: none
+  grid-gap: 0
+  margin: 0 auto
+  .col--single
+    display: flex
 
 .col--single
   grid-area: auto
@@ -49,9 +85,9 @@
 .card__image
   width: 7.5rem
   height: 7.5rem
-  border-radius: 7.5rem
+  //border-radius: 7.5rem
   display: inline-block
-  background: #DDDDDD
+  //background: #DDDDDD
   margin-bottom: 2.5rem
 
 
@@ -62,13 +98,14 @@
   text-align: center
   @media screen and (min-width: $tablet)
     padding: 5rem
-  form
+  .newsletter-form
     display: flex
     flex-direction: row
     justify-content: stretch
     width: 100%
     margin: 2.5rem 0 0 0
-  input[type="text"]
+  input[type="text"],
+  input[type="email"]
     padding: 1.5rem
     border: 0
     flex-grow: 1
@@ -83,3 +120,4 @@
     color: #FFFFFF
     border: 0
     font-size: 1.6rem
+    flex-grow: .25

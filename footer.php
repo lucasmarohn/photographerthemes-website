@@ -1,18 +1,26 @@
-			<!-- footer -->
-			<footer class="footer" role="contentinfo">
+    <footer>
+		<div class="footer__logo"><a href="" class="logo"><strong>Photographer</strong>Themes</a></div>
+		
+		<nav class="nav--footer" role="navigation">
+			<?php if ( have_rows( 'navigation_items', 'option' ) ) : ?>
+			<ul class="nav__list">
+				<?php while ( have_rows( 'navigation_items', 'option' ) ) : the_row(); ?>
+					<li class="nav__item">
 
-				<!-- copyright -->
-				<p class="copyright">
-					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
-					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//html5blank.com" title="HTML5 Blank">HTML5 Blank</a>.
-				</p>
-				<!-- /copyright -->
+						<?php $navigation_link = get_sub_field( 'navigation_link' ); ?>
+						<?php if ( $navigation_link ) { ?>
+							<a class="nav__link <?php if ( get_sub_field( 'highlight_link' ) == 1 ) { echo 'nav__link--cta'; } ?>" href="<?php echo $navigation_link['url']; ?>" target="<?php echo $navigation_link['target']; ?>"><?php echo $navigation_link['title']; ?></a>
+						<?php } ?>
+						
+					</li>
+				<?php endwhile; ?>
+			</ul>
+			<?php endif; ?>
+		</nav>
 
-			</footer>
-			<!-- /footer -->
-
-		</div>
-		<!-- /wrapper -->
+		<p class="footer__meta-description">PhotographerThemes is dedicated to creating helpful, intuitive tools that help established and blossoming photographers grow their business and pursue their passion. We provide websites for photographers, photographer wordpress themes, and marketing resources for photographers.</p>
+        <p>&copy; <?php echo date('Y'); ?> | All Rights Reserved.</p>
+    </footer>
 
 		<?php wp_footer(); ?>
 
@@ -25,6 +33,8 @@
 		ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
 		ga('send', 'pageview');
 		</script>
+
+		<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/bcf9ddc79f8580f694f82daf8/772976407f2969c76292e4d7b.js");</script>
 
 	</body>
 </html>
