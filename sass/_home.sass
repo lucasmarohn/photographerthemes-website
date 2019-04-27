@@ -31,9 +31,20 @@
     z-index: 1
 
 .hero__copy
+  display: flex
+  flex-direction: column
   @media screen and (min-width: $tablet)
     max-width: 98rem
     text-align: left
     margin: auto
     > *
       max-width: 50%
+  &.copy--left 
+    align-items: flex-start
+    text-align: left
+  &.copy--right 
+    align-items: flex-end
+    text-align: right
+  &.copy--center 
+    align-items: center
+    text-align: center

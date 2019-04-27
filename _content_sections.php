@@ -15,6 +15,8 @@
 		<?php elseif ( get_row_layout() == 'wysiwyg_columns' ) : ?>
 			<?php include('content_sections/columns-all.php'); ?>
 
+		<?php elseif ( get_row_layout() == 'wysiwyg' ) : ?>
+			<?php include('content_sections/wysiwyg.php'); ?>
 		<?php endif; ?>
 	<?php endwhile; ?>
 <?php else: ?>

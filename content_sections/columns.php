@@ -7,6 +7,7 @@
 
 
 <?php 
+$card_align = get_sub_field('card_text_align');
 $col_count = count( get_sub_field('column') ); 
 if($col_count % 4 == 0) {
     $col_count = 4;
@@ -23,12 +24,14 @@ if($col_count % 4 == 0) {
 
     <div class="col--multi col--<?php echo $col_count; ?>">
     <?php while ( have_rows( 'column' ) ) : the_row(); ?>
-        <div class="col--single">
+        <div class="col--single single--<?php echo $card_align; ?>">
             <?php $card_image = get_sub_field( 'card_image' ); if($card_image || true) :?>
                 <img src="<?php echo $card_image['url']; ?>" alt="" class="card__image">
             <?php endif; ?>
-            <h3 class="h3"><?php the_sub_field( 'card_title' ); ?></h3>
-            <p><?php the_sub_field( 'card_description' ); ?></p>
+            <div class="card__copy">
+                <h3 class="h3"><?php the_sub_field( 'card_title' ); ?></h3>
+                <p><?php the_sub_field( 'card_description' ); ?></p>
+            </div>
         </div>
     <?php endwhile; ?>
     </div>

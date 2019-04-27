@@ -27,6 +27,9 @@ $col_count = count( get_sub_field('wysiwyg_column') );
             
             <?php elseif ( get_row_layout() == 'wysiwyg_columns' ) : ?>
                 <?php include('columns-all.php'); ?>
+
+            <?php elseif ( get_row_layout() == 'wysiwyg' ) : ?>
+                <?php include('wysiwyg.php'); ?>
             <?php endif; ?>
 
         <?php endwhile; ?>

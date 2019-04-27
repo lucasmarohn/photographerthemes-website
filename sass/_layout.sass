@@ -2,12 +2,12 @@
   display: block
   position: relative
   padding: 7.5rem 2rem
-  text-align: center
   display: flex
   flex-direction: column
   justify-content: center
   width: 100%
   @media screen and (min-width: $desktop)
+    padding: 10rem 6rem
     > .container
       max-width: 98rem
       margin-left: auto
@@ -28,9 +28,6 @@ img
 
 .content__meta
   text-align: center
-  max-width: 75%
-  @media screen and (min-width: $desktop)
-    max-width: 50%
   margin: 0 auto 7.5rem auto
 
 .col--one
@@ -76,6 +73,19 @@ img
 
 .col--single
   grid-area: auto
+  flex-wrap: wrap
+  &.single--left
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    img
+      margin-right: 4rem
+      width: 3.5rem
+      height: 3.5rem
+  &.single--center
+    text-align: center
+  &.single--right
+    text-align: right
 
 .card--feature
   text-align: center
