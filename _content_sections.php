@@ -17,6 +17,10 @@
 
 		<?php elseif ( get_row_layout() == 'wysiwyg' ) : ?>
 			<?php include('content_sections/wysiwyg.php'); ?>
+
+		<?php elseif ( get_row_layout() == 'cards_price' ) : ?>
+			<?php include('content_sections/price-cards.php'); ?>
+
 		<?php endif; ?>
 	<?php endwhile; ?>
 <?php else: ?>

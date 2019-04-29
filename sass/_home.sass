@@ -33,12 +33,6 @@
 .hero__copy
   display: flex
   flex-direction: column
-  @media screen and (min-width: $tablet)
-    max-width: 98rem
-    text-align: left
-    margin: auto
-    > *
-      max-width: 50%
   &.copy--left 
     align-items: flex-start
     text-align: left
@@ -48,3 +42,8 @@
   &.copy--center 
     align-items: center
     text-align: center
+
+.hero__description,.hero__subtitle
+  font-weight: 400
+  font-size: 2.2rem
+  max-width: 75%

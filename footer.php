@@ -19,7 +19,9 @@
 		</nav>
 
 		<p class="footer__meta-description">PhotographerThemes is dedicated to creating helpful, intuitive tools that help established and blossoming photographers grow their business and pursue their passion. We provide websites for photographers, photographer wordpress themes, and marketing resources for photographers.</p>
-        <p>&copy; <?php echo date('Y'); ?> | All Rights Reserved.</p>
+        <p>&copy; <?php echo date('Y'); ?> | All Rights Reserved.
+				| <?php if( is_user_logged_in() ) : echo '<a href="' . wp_logout_url() . '">Logout</a>'; else : echo '<a href="' . wp_login_url() . '">Login</a>'; endif; ?>
+				</p>
     </footer>
 
 		<?php wp_footer(); ?>

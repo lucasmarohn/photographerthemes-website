@@ -5,6 +5,11 @@ $ultrawide: 1640px
 
 \:root
   font-size: 10px
+  @media screen and (min-width: 1920px) and (max-width: 2400px)
+    font-size: calc(10px + (14 - 10) * ((100vw - 1920px) / (2400 - 1920)))
+  @media screen and (min-width: 2400px)
+    font-size: 14px
+
 body
   --color--primary: rgba(0,180,140,1)
   --color--primary--text: rgba(0,160,120,1)

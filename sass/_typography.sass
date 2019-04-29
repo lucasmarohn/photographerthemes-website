@@ -8,12 +8,12 @@ h1,h2,h3,h4,p,a
 
 h1,
 .h1
-  font-size: 1.6em
+  font-size: calc( 1em * 1.6 * 1.6)
   font-weight: bold
 
 h2,
 .h2
-  font-size: 1.4em
+  font-size: calc(1em * 1.6)
   font-weight: 700
   opacity: .8
 
@@ -21,6 +21,8 @@ h3,
 .h3
   font-weight: 700
   line-height: 2.8rem
+  & + h1
+    margin-top: .5rem
 
 p
   font-size: 1.8rem

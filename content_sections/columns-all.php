@@ -2,9 +2,9 @@
 <?php 
 $col_count = 0;
 $col_count = count( get_sub_field('wysiwyg_column') ); 
-
+$col_bg_color = get_sub_field('background_color');
 ?>
-<section class="col--full col--multi col--<?php echo $col_count; ?>">
+<section class="col--full col--multi col--<?php echo $col_count; ?> <?php if($col_bg_color) { echo 'section--' . $col_bg_color; } ?>">
 <?php if ( have_rows( 'wysiwyg_column' ) ) : ?>
     <?php while ( have_rows( 'wysiwyg_column' ) ) : the_row(); ?>
 

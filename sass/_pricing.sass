@@ -1,0 +1,45 @@
+.col--pricing
+  grid-gap: 5rem
+.card--price
+  border: .1rem solid rgba(0,0,0,.1)
+  border-radius: .75rem
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+
+.price__title
+  padding: 2rem 0 0 0
+  text-align: center
+  > *
+    margin-top: .5rem
+
+.price__subtitle
+  opacity: 1
+  background: rgba(0,0,0,.05)
+  color: #666666
+  margin-top: 2rem
+  padding: .5rem 0
+
+.price__price
+  text-align: center
+  //border: .1rem solid rgba(0,0,0,.1)
+  border-left: 0
+  border-right: 0
+  padding: 2rem 0 
+
+.price__amount
+  &:before
+    content: '$'
+
+.price__features-list
+  flex-grow: 1
+  padding: 0 4rem
+  li
+    margin-bottom: .5rem
+
+.price__button 
+  background: rgba(0,0,0,.02)
+  .button
+    justify-self: flex-end
+    margin: 2rem
+    display: block

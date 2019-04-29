@@ -507,5 +507,13 @@ function pt_theme() {
 }
 add_action( 'init', 'pt_theme', 0 );
 
+function shortcode_button($args) {
+	if(! $args['external']) {
+		return ('<a href="' . get_home_url() . $args['href'] . '" class="button">' . $args['title'] . '</a>');
+	} else {
+		return ('<a href="' . $args['href'] . '" class="button">' . $args['title'] . '</a>');
+	}
+}
+add_shortcode( 'button', 'shortcode_button' );
 
 ?>
