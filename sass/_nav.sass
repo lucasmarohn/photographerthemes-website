@@ -7,7 +7,7 @@ header
   padding: 2rem
   color: #333333
   font-size: 1.6rem
-  max-width: 98rem
+  max-width: 120rem
   margin: auto
   @media screen and (max-width: $desktop)
     flex-direction: column
@@ -26,11 +26,15 @@ header
   list-style: none
   display: flex
   flex-direction: row
+  opacity: 1
   @media screen and (max-width: $desktop)
     margin: 2.5rem auto 0 auto
 
 .nav__item
   margin: 0 1.5rem
+  list-style: none
+  padding: 0
+  opacity: 1
   &:first-child
     margin-left: 0
   &:last-child
@@ -44,6 +48,9 @@ header
   transition: .1s ease-in-out
   &:hover
     opacity: .9
+  &--active
+    opacity: 1
+    font-weight: 500
   &--cta
     background-color: var(--color--primary)
     border-radius: .7rem

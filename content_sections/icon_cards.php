@@ -1,4 +1,4 @@
-<section class="content__section">
+<section class="content__section ">
 <?php 
 $col_title = get_sub_field('columns_title');
 $col_desc = get_sub_field('columns_description'); 
@@ -24,11 +24,11 @@ if($item_count % 4 == 0) {
 } else {
     $col_count = 1;
 }
-
 ?>
+
 <?php if ( have_rows( 'column' ) ) : ?>
 
-    <div class="col--multi col--<?php echo $col_count; ?> items--<?php echo $item_count; ?>">
+    <div class="container col--multi col--<?php echo $col_count; ?> items--<?php echo $item_count; ?>">
     <?php while ( have_rows( 'column' ) ) : the_row(); ?>
     <?php $link = get_sub_field('link'); ?>
     <?php if($link) : ?>

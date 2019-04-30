@@ -4,7 +4,7 @@
             <?php include('content_sections/title_description.php'); ?>         
             
 		<?php elseif ( get_row_layout() == 'columns' ) : ?>
-			<?php include('content_sections/columns.php'); ?>
+			<?php include('content_sections/icon_cards.php'); ?>
             
         <?php elseif ( get_row_layout() == 'newsletter' ) : ?>
             <?php include('content_sections/newsletter.php'); ?>
@@ -12,7 +12,7 @@
 		<?php elseif ( get_row_layout() == 'image' ) : ?>
 			<?php include('content_sections/image.php'); ?>	
 		
-		<?php elseif ( get_row_layout() == 'wysiwyg_columns' ) : ?>
+		<?php elseif ( get_row_layout() == 'content_columns' ) : ?>
 			<?php include('content_sections/columns-all.php'); ?>
 
 		<?php elseif ( get_row_layout() == 'wysiwyg' ) : ?>
@@ -20,6 +20,9 @@
 
 		<?php elseif ( get_row_layout() == 'cards_price' ) : ?>
 			<?php include('content_sections/price-cards.php'); ?>
+
+		<?php elseif ( get_row_layout() == 'testimonial' ) : ?>
+			<?php include('content_sections/testimonials.php'); ?>
 
 		<?php endif; ?>
 	<?php endwhile; ?>

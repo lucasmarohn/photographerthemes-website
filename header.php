@@ -26,17 +26,17 @@
 	<body <?php body_class(); ?>>
 
 	<header>
-		<nav class="nav--top" role="navigation">
+		<nav class="nav--top container" role="navigation">
 			<a href="<?php echo get_home_url(); ?>" class="logo"><strong>Photographer</strong>Themes</a>
 
-			<?php if ( have_rows( 'navigation_items', 'option' ) ) : ?>
+			<?php if ( have_rows( 'navigation_items_list', 'option' ) ) : ?>
 			<ul class="nav__list">
-				<?php while ( have_rows( 'navigation_items', 'option' ) ) : the_row(); ?>
+				<?php while ( have_rows( 'navigation_items_list', 'option' ) ) : the_row(); ?>
 					<li class="nav__item">
 
 						<?php $navigation_link = get_sub_field( 'navigation_link' ); ?>
 						<?php if ( $navigation_link ) { ?>
-							<a class="nav__link <?php if ( get_sub_field( 'highlight_link' ) == 1 ) { echo 'nav__link--cta'; } ?>" href="<?php echo $navigation_link['url']; ?>" target="<?php echo $navigation_link['target']; ?>"><?php echo $navigation_link['title']; ?></a>
+							<a class="nav__link <?php if( is_page( $navigation_link['title'] ) ) {echo 'nav__link--active'; } if ( get_sub_field( 'highlight_link' ) == 1 ) { echo 'nav__link--cta'; } ?>" href="<?php echo $navigation_link['url']; ?>" target="<?php echo $navigation_link['target']; ?>"><?php echo $navigation_link['title']; ?></a>
 						<?php } ?>
 						
 						
@@ -46,9 +46,10 @@
 			<?php endif; ?>
 		</nav>
 
-		<?php if( is_page('features') ) : ?>
+		<?php if( is_page('themes') ) : ?>
 		<nav class="subnav--top">
 			<ul class="subnav__list">
+			<li class="subnav__item"><a href="#0" class="subnav__link">Overview</a></li>
 				<li class="subnav__item current_page_item"><a href="#0" class="subnav__link">Magnesium</a></li>
 				<li class="subnav__item"><a href="#0" class="subnav__link">Sharpen</a></li>
 			</ul>

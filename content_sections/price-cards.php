@@ -1,7 +1,7 @@
 <?php $col_count = count(get_sub_field('price_cards')); ?>
 <?php if ( have_rows( 'price_cards' ) ) : ?>
 
-<div class="col--multi col--<?php echo $col_count; ?> col--pricing">
+<div class="container col--multi col--<?php echo $col_count; ?> col--pricing">
 	<?php while ( have_rows( 'price_cards' ) ) : the_row(); ?>
   <div class="col--single card--price">
     <div class="price__title">

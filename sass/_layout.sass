@@ -1,14 +1,14 @@
 .content__section
   display: block
   position: relative
-  padding: 7.5rem 2rem
   display: flex
   flex-direction: column
   justify-content: center
   width: 100%
+  padding: 7.5rem 2rem
   @media screen and (min-width: $landscape) 
-    padding: 7.5rem 4rem
     align-items: flex-start
+    padding: 7.5rem 4rem
   @media screen and (min-width: $desktop)
     padding: 10rem 6rem
     > .container
@@ -16,13 +16,55 @@
       margin-left: auto
       margin-right: auto
 
+.section--columns
+  padding: 0
+  > .col--multi
+    margin: 0
+    padding: 0
+  .column__section
+    display: block
+    position: relative
+    width: 100%
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: center
+  .column__text
+    padding: 2rem
+    max-width: 78rem
+    margin: auto
+    @media screen and (min-width: $landscape) 
+      padding: 4rem
+    @media screen and (min-width: $desktop)
+      padding: 6rem
+
 .section--highlight
   background: rgba(0,0,0,.02)
 
+.section--primary
+  background: var(--color--primary)
+  h1,h2,h3
+    color: rgba(255,255,255,1)
+  p
+    color: rgba(255,255,255, .9)
+  .button
+    background: rgba(0,0,0,.15)
+    border-radius: .7rem
+    color: #FFFFFF
+    text-shadow: none
+    &:hover
+      background: #111111
+    &:before, &:after
+      display: none
+
 .section--darken
   background: #333333
-  > * 
+  *
     color: #FFFFFF
+  > h1,h2,h3
+    color: rgba(255,255,255,1)
+  > p
+    color: rgba(255,255,255, .9)
 
 img
   width: 100%
@@ -47,8 +89,11 @@ img
 .col--multi,.col--full
   display: grid
   grid-template-columns: 1fr
-  grid-gap: 7.5rem
   width: 100%
+  grid-gap: 2.5rem
+  padding: 0 2.5rem
+  @media screen and (min-width: $tablet)
+    grid-gap: 5rem
   &.col--2
     @media screen and (min-width: $tablet)
       grid-template-columns: 1fr 1fr
@@ -61,14 +106,13 @@ img
     grid-template-columns: 1fr
     @media screen and (min-width: $tablet)
       grid-template-columns: 1fr 1fr
+    @media screen and (min-width: $desktop + 300)
+      &.items--8
+        grid-template-columns: 1fr 1fr 1fr 1fr
+        max-width: none
 
 .col--multi 
-  max-width: 98rem
   margin: 5rem auto
-  @media screen and (min-width: $tablet)
-    grid-gap: 5rem
-  @media screen and (min-width: $desktop)
-    grid-gap: 7.5rem
 
 .col--full
   width: 100% 
@@ -87,7 +131,8 @@ img
     flex-wrap: nowrap
     img
       margin-right: 4rem
-      width: 3.5rem
+      width: 100%
+      max-width: 3.5rem
       height: 3.5rem
   &.single--center
     text-align: center
@@ -137,6 +182,8 @@ a.col--single
   padding: 2.5rem
   color: #FFFFFF
   text-align: center
+  > p
+    color: rgba(#FFFFFF, .9)
   @media screen and (min-width: $tablet)
     padding: 5rem
   .newsletter-form
@@ -162,6 +209,38 @@ a.col--single
     border: 0
     font-size: 1.6rem
     flex-grow: .25
+
+.testimonial__item
+  border: .1rem solid rgba(0,0,0,.1)
+  background: rgba(255,255,255,.1)
+  padding: 4rem
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+  justify-content: stretch
+  align-items: center
+  border-radius: .7rem
+  text-align: center
+  .testimonial__copy
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    flex-grow: 1
+  img
+    display: block
+    width: 7.5rem
+    height: 7.5rem
+    width: auto
+    border-radius: 50%
+    margin-bottom: 2rem
+  .testimonial__quote
+    margin: 0
+    flex-grow: 1
+  .testimonial__author
+    display: block
+    margin: 2rem 0 0 0 
+    font-weight: 700
 
 .image--full
   width: 100%

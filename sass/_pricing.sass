@@ -1,5 +1,7 @@
-.col--pricing
-  grid-gap: 5rem
+.col--pricing.col--multi
+  @media screen and (min-width: $tablet) and (max-width: $desktop)
+    grid-template-columns: 1fr 1fr
+    
 .card--price
   border: .1rem solid rgba(0,0,0,.1)
   border-radius: .75rem
