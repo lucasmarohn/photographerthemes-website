@@ -11,10 +11,10 @@
 
 				<?php get_template_part('pagination'); ?>
 			</div><!-- container -->
+
+			<?php get_sidebar(); ?>
 		</section>
 		<!-- /section -->
 	</main>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
