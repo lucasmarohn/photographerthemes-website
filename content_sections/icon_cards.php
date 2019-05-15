@@ -17,10 +17,10 @@ $card_align = get_sub_field('card_text_align');
 $item_count = count( get_sub_field('column') ); 
 if($item_count % 4 == 0) {
     $col_count = 4;
-} else if($item_count % 3 == 0) {
+} elseif($item_count % 3 == 0) {
     $col_count = 3;
-} else if($item_count > 1) {
-    $col_Count = 2;
+} elseif($item_count > 1) {
+    $col_count = 2;
 } else {
     $col_count = 1;
 }

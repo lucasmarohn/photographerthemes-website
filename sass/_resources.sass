@@ -1,0 +1,142 @@
+.resources__page 
+  padding: 4rem
+  background: rgba(0,0,0,.03)
+  @media screen and (min-width: $tablet)
+    padding: 6rem 4rem 
+
+.resources__index,
+.resources__single
+  @media screen and (min-width: $tablet)
+    display: flex
+    flex-direction: row
+    justify-content: center
+    > * 
+      flex-grow: 0
+    .resources__container 
+      margin-left: 0
+      margin-right: 0
+    .sidebar 
+      padding-top: calc( 4rem + 4.5rem)
+
+.resources__single 
+  .resource__meta 
+    margin-bottom: 6rem
+  .resource__meta--footer 
+    margin-bottom: 0
+
+.resources__index__title
+  text-align: center
+  margin-bottom: 4rem
+
+.resources__container,
+  display: grid
+  grid-template-columns: 1
+  grid-gap: 4rem
+  max-width: 82rem
+  margin: auto
+
+.post
+  background: #ffffff
+  //border: .1rem solid rgba(0,0,0,.1)
+  padding: 2rem 0
+  font-size: 2rem
+  border-radius: .75rem
+  p, li, blockquote
+    font-size: 2rem
+    line-height: 3.2rem
+    font-weight: 300
+  > * 
+    padding: 0 2rem
+    & + *
+      margin-top: 3rem
+  @media screen and (min-width: $tablet) and (max-width: $desktop)
+    padding: 4rem 0
+    > * 
+      padding: 0 4rem
+  @media screen and (min-width: $desktop)
+    padding: 6rem 0
+    > * 
+      padding: 0 6rem
+
+.resource__single__title a,
+.resource__title a
+  text-decoration: none
+  color: var(--color--grey--dark)
+  &:hover 
+    text-decoration: underline
+
+.resource__thumbnail 
+  width: 100%
+  height: 0
+  padding-bottom: 56.25%
+  display: block 
+  background-color: rgba(0,0,0,.1)
+
+.resource__meta 
+  font-size: calc( 1rem * 1.6)
+  .resource__categories 
+    margin: 0 1rem 0 0
+  a 
+    text-decoration: none
+    color: var(--color--primary--text)
+
+.resource__button 
+  margin-bottom: 0
+
+a.post-edit-link
+  margin: 2rem 0 0 0
+  display: inline-block
+  background: orangered
+  opacity: .75
+  padding: .25rem .5rem
+  color: #FFFFFF 
+  text-decoration: none
+  border-radius: .75rem
+  margin: 0 1rem
+  font-size: 1.2rem
+
+.resource__tags,
+.resource__categories
+  margin: 2rem 0
+  font-size: 1.4rem
+  a 
+    padding: .5rem 1.5rem
+    background: rgba(0,0,0,.1)
+    border-radius: 2rem
+    line-height: 3.2rem
+    color: var(--color--grey--dark)
+    margin: 0 0 0 .5rem
+    font-size: 1.4rem
+    text-decoration: none
+    &:hover 
+      color: #ffffff
+      background: rgba(0,0,0,.8)
+
+.sidebar 
+  padding: 6rem 4rem
+  h3 
+    font-size: calc( 1rem * 1.6 * 1.6 * 1.2)
+  > * + * 
+    margin-top: 4rem
+  .sidebar__widget
+    > * + * 
+      margin-top: 4rem
+
+form.search 
+  display: flex
+  flex-direction: row
+  justify-content: stretch
+  width: 100%
+  .search-input 
+    border-right: 0
+    border-top-right-radius: 0
+    border-bottom-right-radius: 0
+    flex-grow: 1
+    padding: 1.5rem
+    &:focus
+      outline: 0
+      border: .1rem solid var(--color--primary)
+  .search-submit
+    border-top-right-radius: .75rem
+    border-bottom-right-radius: .75rem
+    padding: 1.5rem 3rem

@@ -1,15 +1,16 @@
 <?php get_header(); ?>
 
-	<main role="main">
+	<main role="main" class="resources__page">
+	<h1 class="resources__index__title"><?php _e( 'Resources', 'html5blank' ); ?></h1>
 		<!-- section -->
-		<section>
+		<section class="resources__index">
+		
+			<div class="container resources__container">
+				<?php get_template_part('searchform'); ?>
+				<?php get_template_part('loop'); ?>
 
-			<h1><?php _e( 'Latest Posts', 'html5blank' ); ?></h1>
-
-			<?php get_template_part('loop'); ?>
-
-			<?php get_template_part('pagination'); ?>
-
+				<?php get_template_part('pagination'); ?>
+			</div><!-- container -->
 		</section>
 		<!-- /section -->
 	</main>

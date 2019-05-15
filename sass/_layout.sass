@@ -94,15 +94,18 @@ img
   padding: 0 2.5rem
   @media screen and (min-width: $tablet)
     grid-gap: 5rem
-  &.col--2
+  &.col--2,
+  &.items--2
     @media screen and (min-width: $tablet)
       grid-template-columns: 1fr 1fr
-  &.col--3
+  &.col--3,
+  &.items--3
     grid-template-columns: 1fr
     @media screen and (min-width: $tablet)
       grid-template-columns: 1fr 1fr 1fr
       grid-template-rows: none
-  &.col--4
+  &.col--4,
+  &.items--4,
     grid-template-columns: 1fr
     @media screen and (min-width: $tablet)
       grid-template-columns: 1fr 1fr
@@ -145,6 +148,7 @@ a.col--single
   padding: 4rem
   color: inherit
   text-decoration: none
+  border: .1rem solid rgba(0,0,0,.1)
   .card__cta
     margin-top: 2rem
     display: block
