@@ -57,7 +57,7 @@ h4
       right: 100px
       opacity: .1
       background: linear-gradient(90deg, var(--color--primary), transparent)
-  a 
+  a:not(.button) 
     color: var(--color--primary--text)
     text-decoration: none
     &:hover 
@@ -69,6 +69,8 @@ h4
     margin-top: 6rem
   > * + h3
     margin-top: 6rem
+  > h1 + h2 
+    margin-top: 2rem
   ul,
   ol 
     padding-left: 2rem
@@ -161,7 +163,7 @@ h4
     &:after
       box-shadow: 0 0 0 transparent
 
-input
+input,select
   padding: 1rem
   border: .1rem solid #ffffff
   background: #FFFFFF

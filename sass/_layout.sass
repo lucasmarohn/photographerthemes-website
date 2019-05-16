@@ -56,14 +56,15 @@
       background: #111111
     &:before, &:after
       display: none
-
+.section--primary--light 
+  background: var(--color--primary--light)
 .section--darken
   background: #333333
   *
     color: #FFFFFF
   > h1,h2,h3
     color: rgba(255,255,255,1)
-  > p
+  > p,ul,ol,li
     color: rgba(255,255,255, .9)
 
 img
@@ -183,10 +184,11 @@ a.col--single
 
 
 .content__feature
-  background: #333333
+  background: linear-gradient(135deg, #222222, #111111)
   padding: 2.5rem
   color: #FFFFFF
   text-align: center
+  border-radius: 1.5rem
   > *
     color: rgba(#FFFFFF, .9)
   @media screen and (min-width: $tablet)

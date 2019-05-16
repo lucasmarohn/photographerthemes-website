@@ -30,9 +30,14 @@
 		<?php if ( get_sub_field( 'featured_card' ) == 1 ) { 
 		 // echo 'true'; 
 		} ?>
-    <div class="price__button">
-      <a href="#" class="button price__button">Get Started</a>
-    </div>
+    
+    <?php $button = get_sub_field( 'button' ); ?>
+		<?php if ( $button ) { ?>
+      <div class="price__button">
+			<a href="<?php echo $button['url']; ?>" target="<?php echo $button['target']; ?>" class="button price__button"><?php echo $button['title']; ?></a>
+      </div>
+    <?php } ?>
+    
     </div><!-- cols--single -->
 	<?php endwhile; ?>
 </div><!-- cols--multi -->
