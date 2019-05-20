@@ -879,17 +879,18 @@ a.col--single:hover .card__cta:after {
   background: #111111;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   color: white;
   padding: 5rem 2rem;
   text-align: center;
   z-index: 2;
 }
-/* line 9, ../sass/_home.sass */
+/* line 10, ../sass/_home.sass */
 .content__hero > * {
   position: relative;
   z-index: 5;
 }
-/* line 12, ../sass/_home.sass */
+/* line 13, ../sass/_home.sass */
 .content__hero *:last-child {
   margin-bottom: 0;
 }
@@ -906,11 +907,11 @@ a.col--single:hover .card__cta:after {
   }
 }
 
-/* line 19, ../sass/_home.sass */
+/* line 20, ../sass/_home.sass */
 .hero--dark {
   position: relative;
 }
-/* line 21, ../sass/_home.sass */
+/* line 22, ../sass/_home.sass */
 .hero--dark:after {
   content: "";
   display: block;
@@ -919,8 +920,7 @@ a.col--single:hover .card__cta:after {
   right: 0;
   bottom: 0;
   left: 0;
-  background: #444444;
-  opacity: 0.5;
+  background: rgba(0, 10, 20, 0.5);
   z-index: 1;
 }
 
@@ -928,29 +928,32 @@ a.col--single:hover .card__cta:after {
 .hero__copy {
   display: flex;
   flex-direction: column;
+  text-shadow: 0 0 3rem black, 0 0 0.5rem black, 0 0 7rem black;
 }
-/* line 36, ../sass/_home.sass */
+/* line 37, ../sass/_home.sass */
 .hero__copy * {
   color: white;
 }
-/* line 38, ../sass/_home.sass */
+/* line 39, ../sass/_home.sass */
 .hero__copy.copy--left {
   align-items: flex-start;
   text-align: left;
+  max-width: 68rem;
 }
-/* line 41, ../sass/_home.sass */
+/* line 43, ../sass/_home.sass */
 .hero__copy.copy--right {
   align-items: flex-end;
   text-align: right;
+  max-width: 68rem;
 }
-/* line 44, ../sass/_home.sass */
+/* line 47, ../sass/_home.sass */
 .hero__copy.copy--center {
   align-items: center;
   text-align: center;
   margin: 0 auto;
 }
 
-/* line 49, ../sass/_home.sass */
+/* line 52, ../sass/_home.sass */
 .hero__description, .hero__subtitle {
   font-weight: 400;
   font-size: 2.2rem;
@@ -1322,4 +1325,68 @@ form.search .search-submit {
   border-top-right-radius: 0.75rem;
   border-bottom-right-radius: 0.75rem;
   padding: 1.5rem 3rem;
+}
+
+/* line 2, ../sass/_woocommerce.sass */
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.cfw-bottom-controls .cfw-primary-btn,
+.place-order .cfw-primary-btn {
+  background: linear-gradient(-45deg, var(--color--primary), #FFFFFF);
+  background-size: 250%;
+  background-position: bottom right;
+  color: #ffffff;
+  font-weight: 400;
+  border-radius: 0.8rem;
+}
+/* line 14, ../sass/_woocommerce.sass */
+.woocommerce #respond input#submit:disabled,
+.woocommerce a.button:disabled,
+.woocommerce button.button:disabled,
+.woocommerce input.button:disabled,
+.cfw-bottom-controls .cfw-primary-btn:disabled,
+.place-order .cfw-primary-btn:disabled {
+  color: #FFFFFF !important;
+}
+
+/* line 18, ../sass/_woocommerce.sass */
+thead > tr > th {
+  color: #000000;
+}
+
+/* line 20, ../sass/_woocommerce.sass */
+.cart_item {
+  background: white;
+}
+
+/* line 23, ../sass/_woocommerce.sass */
+.woocommerce .cart-collaterals .cart_totals,
+.woocommerce-page .cart-collaterals .cart_totals {
+  width: 100%;
+}
+/* line 26, ../sass/_woocommerce.sass */
+.woocommerce .cart-collaterals .cart_totals h2,
+.woocommerce-page .cart-collaterals .cart_totals h2 {
+  margin: 3rem 0 3rem 0;
+}
+
+/* line 30, ../sass/_woocommerce.sass */
+.shop_table tr:nth-of-type(2n+2) {
+  background: rgba(255, 255, 255, 0.3);
+}
+/* line 32, ../sass/_woocommerce.sass */
+.shop_table .recurring-totals, .shop_table .recurring-totals:nth-of-type(2n+2) {
+  background: #111111;
+  color: #FFFFFF;
+}
+/* line 35, ../sass/_woocommerce.sass */
+.shop_table .recurring-totals *, .shop_table .recurring-totals:nth-of-type(2n+2) * {
+  color: #FFFFFF;
+}
+/* line 37, ../sass/_woocommerce.sass */
+.shop_table .order-total.recurring-total {
+  background: var(--color--primary--light);
+  border: 0.1rem solid var(--color--primary);
 }
