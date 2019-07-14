@@ -1,70 +1,162 @@
 header 
   background: #FFFFFF
-.nav--top
-  display: flex
-  flex-direction: row
-  justify-content: space-between
-  padding: 2rem
-  color: #333333
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 20
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.05), 0 .5rem 3rem rgba(0,0,0,.05)
+
+#wpadminbar 
+  position: fixed !important
+
+.logo
+  color: rgba(0,0,0,.9)
+  text-decoration: none
+  opacity: .9
+  transition: font-size .2s ease-in-out
   font-size: 1.6rem
-  max-width: 120rem
-  margin: auto
-  @media screen and (max-width: $desktop)
-    flex-direction: column
-    justify-content: center
-    text-align: center
-  .logo
+  font-family: 'Work Sans'
+  display: flex
+  flex-direction: column 
+  justify-content: center
+  strong 
     color: rgba(0,0,0,.9)
-    text-decoration: none
-    opacity: .9
-    strong 
-      color: rgba(0,0,0,.9)
-    &:hover
-      opacity: 1
+  &:hover
+    opacity: 1
+  @media screen and (min-width: $tablet)
+    flex-direction: row 
+    justify-content: center
+    padding: 3rem 0 0 0
+  @media screen and (min-width: $desktop)
+    flex-direction: column
+    padding: 0
+
+.logotype
+  display: flex
+  justify-content: center
+  &:before 
+    content: ''
+    width: 2.8rem
+    height: 2.8rem
+    margin-right: 1rem
+    display: block
+    background: url('../img/icons/touch.png')
+    background-size: cover
+    transition: transform .2s ease-in-out
+
+
+#nav__checkbox,
+#nav__label
+  display: none
 
 .nav__list
-  padding: 0
-  margin: 0
-  list-style: none
-  display: flex
-  flex-direction: row
-  opacity: 1
-  @media screen and (max-width: $desktop)
-    margin: 2.5rem auto 0 auto
+  display: block
 
-.nav__item
-  margin: 0 1.5rem
-  list-style: none
-  padding: 0
-  opacity: 1
-  &:first-child
-    margin-left: 0
-  &:last-child
-    margin-right: 0
+@media screen and (max-width: $tablet)
+  .nav--top
+    padding: 2rem 0
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    flex-wrap: wrap
+    align-items: center
 
-.nav__link
-  color: #111111
-  text-decoration: none
-  opacity: .6
-  padding: 0 0 .2rem 0
-  transition: .1s ease-in-out
-  &:hover
-    opacity: .9
-  &--active
+  .logo 
+    margin-left: 2rem
+  #nav__label
+    margin-right: 2rem
+
+  .nav__list
+    position: relative
+    height: 100vh
+    top: 0
+    right: 0
+    left: 0
+    bottom: 0
+    list-style: none
+    text-align: center
+    padding: 2rem
+    margin: 2rem 0
+    background: rgba(0,0,0,.05)
+    flex-basis: 100%
+    width: 100%
+
+  .nav__item
+    margin: 1.5rem 0
+
+  .nav__link
+    display: inline-block
+    color: #111111
+    opacity: .6
+    text-decoration: none
+    font-size: 2.4rem
+    padding: 1rem 0
+    &--active
+      opacity: 1
+      font-weight: 500
+    &--cta
+      background: linear-gradient(-45deg, var(--color--primary), var(--color--primary--text))
+      border-radius: .7rem
+      padding: 0.5rem 2rem
+      margin: 0 .5rem
+      color: #FFFFFF
+      opacity: 1
+
+  #nav__checkbox
+    opacity: 0
+    display: none
+    visibility: hidden
+    z-index: 0
+
+
+  #nav__label
+    display: inline-block
+    width: 4rem
+    height: 4rem
+    background: url('../img/icons/squircle.svg')
+    background-size: contain
+    padding: 1rem
+
+  #nav__close
+    display: none
+
+  .nav__list
+    opacity: 0
+    height: 0
+    display: none
+
+  #nav__checkbox:checked
+    ~ #nav__label
+      > #nav__hamburger
+        display: none 
+      > #nav__close 
+        display: block
+    ~ .nav__list
+      opacity: 1
+      height: 100vh
+      display: block
+
+.subnav--top
+  display: none
+  @media screen and (min-width: $tablet)
+    display: block 
+  margin-top: 4rem
+  transition: margin .2s ease-in-out
+  position: absolute
+  left: -2rem
+  right: -2rem
+  z-index: 1
+  opacity: 0
+  pointer-events: none
+  transition: transform .2s ease-in-out, opacity .2s ease-in-out, margin-top .2s ease-in-out
+  &.subnav--active
+    pointer-events: all 
     opacity: 1
-    font-weight: 500
-  &--cta
-    background-color: var(--color--primary)
-    border-radius: .7rem
-    padding: 0.45rem 1rem
-    color: #FFFFFF
-    opacity: 1
-    &:hover
-      opacity: .8
-      border-color: var(--color--primary)
+    animation: none
 
 .subnav__list
-  background: rgba(10,15,20,.02)
+  background: #EFEFEF
   box-shadow: inset 0 .5rem .5rem rgba(0,0,0,.05)
   padding: 1.5rem
   margin: 0
@@ -74,14 +166,113 @@ header
   justify-content: center
   font-size: 1.4rem
 
+
 .subnav__item
   margin: 0 1.5rem
   &:first-child
     margin-left: 0
-
+  
 .subnav__link
   color: rgba(10,15,20,1)
   opacity: .6
   text-decoration: none
   &:hover
     opacity: 1
+
+
+@media screen and (min-width: $tablet)   
+  .nav--top
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-content: center
+    padding: 2rem
+    color: #333333
+    font-size: 1.6rem
+    max-width: 120rem
+    margin: auto
+    transition: padding .2s ease-in-out
+    @media screen and (max-width: $desktop)
+      flex-direction: column
+      justify-content: center
+      text-align: center
+
+  header .nav--top
+    padding: 0 2rem
+    box-shadow: 0 0 0 transparent
+    .logo
+      font-size: 2rem
+
+  header.notScrollTop .nav--top .nav__item
+    padding: 2rem 0
+  header.notScrollTop .subnav--top
+    margin-top: 2rem
+
+  .nav__list
+    padding: 0
+    margin: 0
+    list-style: none
+    display: flex
+    flex-direction: row
+    opacity: 1
+    @media screen and (max-width: $desktop)
+      margin: 0 auto 0 auto
+
+  .nav__item
+    margin: 0
+    list-style: none
+    padding: 0
+    opacity: 1
+    padding: 4rem 0
+    transition: padding .2s ease-in-out
+    @media screen and (min-width: $desktop)
+      padding: 4rem 0
+    &:first-child
+      margin-left: 0
+    &:last-child
+      margin-right: 0
+    &:hover 
+      .subnav--top
+        z-index: 6
+        opacity: 1
+        pointer-events: all
+        animation: subnavHover .2s ease-in-out forwards
+        &.subnav--active
+          animation: none
+
+  .nav__link
+    color: #111111
+    text-decoration: none
+    opacity: .6
+    padding: 0 1.5rem .2rem 1.5rem
+    transition: .1s ease-in-out
+    &:hover
+      opacity: .9
+    &--active
+      opacity: 1
+      font-weight: 500
+    &--cta
+      background: linear-gradient(-45deg, var(--color--primary), var(--color--primary--text))
+      border-radius: .7rem
+      padding: 0.45rem 1rem
+      margin: 0 .5rem
+      color: #FFFFFF
+      opacity: 1
+      &:hover
+        opacity: .8
+        border-color: var(--color--primary)
+
+
+@keyframes subnavHover 
+  0%
+    transform: translateX(-2rem)
+    opacity: 0
+  100% 
+    transform: translateX(0)
+    opacity: 1
+
+@keyframes subnavActive 
+  0%
+    transform: translateX(0)
+  100% 
+    transform: translateX(-2rem)

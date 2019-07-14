@@ -1,0 +1,79 @@
+.features__section
+    position: relative
+    padding: 0 0 20rem 0
+    @media screen and (min-width: $desktop)
+        padding: 12rem 0
+
+.feature
+    @media screen and (min-width: $desktop)
+        display: flex
+        position: relative
+
+.feature__content__col
+    @media screen and (min-width: $desktop)
+        display: flex
+        justify-content: center
+        flex-basis: 100%
+    @media screen and (min-width: $ultrawide)
+        flex-basis: 75%
+
+.feature__content__container
+    position: fixed
+    bottom: 0
+    left: 2rem
+    right: 2rem
+    margin-bottom: 2rem
+    background: #ffffff
+    border-left: var(--color--primary) .5rem solid
+    padding: 3rem
+    box-shadow: 0 1rem 1rem rgba(0,0,0,.05), 0 2rem 7rem rgba(0,0,0,.1)
+    z-index: 5
+    @media screen and (min-width: $desktop)
+        position: relative
+        left: auto
+        right: auto
+        padding: 6rem
+
+
+.feature__content
+    opacity: 0
+    @media screen and (min-width: $desktop)
+        padding: 0 2rem
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        width: 100%
+        max-width: 68rem
+        pointer-events: none
+        transition: opacity .2s ease-in-out, transform .2s ease-in-out
+    &.active
+        opacity: 1
+        pointer-events: all
+        // transform: translateY(-55%)
+
+.feature__image
+    background: #111214
+    flex-basis: 100%
+    width: 100%
+    cursor: pointer
+    z-index: -1
+    position: relative
+    @media screen and (min-width: $desktop)
+        width: 50%
+    @media screen and (min-width: $ultrawide)
+        flex-basis: 100%
+    img 
+        opacity: 0.2
+        transition: opacity .5s ease-in-out
+        pointer-events: none
+    &:hover img
+        opacity: 0.5
+    &.active
+        border: .1rem solid var(--color--primary)
+        border-left: 0
+        border-right: 0
+        img
+            opacity: 1
+        
+
+        

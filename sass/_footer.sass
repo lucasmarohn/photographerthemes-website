@@ -3,6 +3,9 @@ footer
   padding: 5rem
   text-align: center
   .logo 
+    color: #FFFFFF
+    .logotype
+      color: #FFFFFF
     strong 
       color: #FFFFFF
   .nav--footer
@@ -22,8 +25,40 @@ footer
   > *:last-child
     margin-bottom: 0
   a 
-    color: rgba(255,255,255,1)
+    color: rgba(255,255,255,.5)
     text-decoration: none
   .footer__meta-description
     max-width: 98rem
     margin: auto
+  @media screen and (min-width: $desktop)
+    .container
+      display: grid
+      grid-template-columns: 1fr 1fr
+      grid-template-rows: auto
+      grid-gap: 3rem
+      p 
+        font-size: 1.6rem
+      .logo 
+        grid-column: 1 / span 1
+        grid-row: 1 / span 1
+        .logotype 
+          justify-content: flex-start
+      .footer__meta-description
+        grid-column: 1 / span 1
+        grid-row: 2 / span 3
+        text-align: left
+        margin: 0
+      .nav--footer 
+        grid-column: 2 / span 1
+        grid-row: 2 / span 1
+        margin: 0
+        font-size: 1.6rem
+        .nav__list 
+          justify-content: flex-end
+        li 
+          padding: 0
+      .footer__meta-copyright
+        margin: 0
+        text-align: right
+        grid-column: 2 / span 1
+        grid-row: 3 / span 1

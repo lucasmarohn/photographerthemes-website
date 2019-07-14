@@ -1,5 +1,5 @@
 .resources__page 
-  padding: 4rem
+  padding: 2rem
   background: rgba(0,0,0,.03)
   @media screen and (min-width: $tablet)
     padding: 6rem 4rem 
@@ -30,7 +30,7 @@
 
 .resources__container,
   display: grid
-  grid-template-columns: 1
+  grid-template-columns: 1fr
   grid-gap: 4rem
   max-width: 82rem
   margin: auto
@@ -44,7 +44,7 @@
   p, li, blockquote
     font-size: 2rem
     line-height: 3.2rem
-    font-weight: 300
+    font-weight: 400
   > * 
     padding: 0 2rem
     & + *
@@ -142,6 +142,7 @@ form.search
       outline: 0
       border: .1rem solid var(--color--primary)
   .search-submit
+    border-radius: 0
     border-top-right-radius: .75rem
     border-bottom-right-radius: .75rem
     padding: 1.5rem 3rem

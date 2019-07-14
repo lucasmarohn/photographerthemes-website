@@ -11,6 +11,9 @@
     color: #ffffff
     font-weight: 400
     border-radius: .8rem
+    padding: 2rem 3rem
+    &:hover
+        color: #FFFFFF !important
     &:disabled
         color: #FFFFFF !important
     
@@ -37,3 +40,62 @@ thead > tr > th
     .order-total.recurring-total 
         background: var(--color--primary--light)
         border: .1rem solid var(--color--primary)
+
+.woocommerce-MyAccount-content
+    a 
+        color: var(--color--primary--text)
+        text-decoration: none
+        &:hover
+            color: var(--color--primary)
+            text-decoration: underline
+
+.woocommerce-MyAccount-navigation
+    background: #FFFFFF
+    border-radius: .75rem
+    margin-bottom: 4rem
+    padding: 0 2rem
+    ul 
+        list-style: none
+        padding: 0
+        margin: 0
+
+.woocommerce-MyAccount-navigation-link 
+    margin: 0
+    border-bottom: .1rem solid rgba(0,0,0,.1)
+    &.is-active a
+        opacity: 1
+        font-weight: 500
+    &:last-of-type
+        border-bottom: 0
+    a
+        text-decoration: none
+        opacity: .6
+        color: #111111
+        padding: 2rem 0
+        display: block
+        &:hover
+            opacity: 1
+.woocommerce-MyAccount-navigation-link--customer-logout a
+    color: red
+
+.edit-account
+    fieldset
+        border: .1rem solid rgba(0,0,0,.15)
+        border-bottom-left-radius: .75rem
+        border-bottom-right-radius: .75rem
+        padding: 2rem
+        legend
+            display: block
+            width: calc(100% + 4rem)
+            margin: 0 -2rem
+            background: var(--color--primary)
+            padding: 2rem
+            color: #ffffff
+            border: .1rem solid var(--color--primary--text)
+            border-top-left-radius: .75rem
+            border-top-right-radius: .75rem
+    > * + * 
+        margin-top: 4rem
+.woocommerce-form-row
+    em 
+        font-size: 1.4rem

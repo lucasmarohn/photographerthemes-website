@@ -1,10 +1,11 @@
-    <footer>
-		<div class="footer__logo"><a href="" class="logo"><strong>Photographer</strong>Themes</a></div>
+    <footer class="footer">
+	<div class="container">
+		<div class="footer__logo"><a href="<?php echo get_home_url(); ?>" class="logo"><span class="logotype"><strong>Photographer</strong>Themes</span></a></div>
 		
 		<nav class="nav--footer" role="navigation">
-			<?php if ( have_rows( 'navigation_items', 'option' ) ) : ?>
+			<?php if ( have_rows( 'navigation_items_list', 'option' ) ) : ?>
 			<ul class="nav__list">
-				<?php while ( have_rows( 'navigation_items', 'option' ) ) : the_row(); ?>
+				<?php while ( have_rows( 'navigation_items_list', 'option' ) ) : the_row(); ?>
 					<li class="nav__item">
 
 						<?php $navigation_link = get_sub_field( 'navigation_link' ); ?>
@@ -17,11 +18,12 @@
 			</ul>
 			<?php endif; ?>
 		</nav>
-
 		<p class="footer__meta-description">PhotographerThemes is dedicated to creating helpful, intuitive tools that help established and blossoming photographers grow their business and pursue their passion. We provide websites for photographers, photographer wordpress themes, and marketing resources for photographers.</p>
-        <p>&copy; <?php echo date('Y'); ?> | All Rights Reserved.
-				| <?php if( is_user_logged_in() ) : echo '<a href="' . wp_logout_url() . '">Logout</a>'; else : echo '<a href="' . wp_login_url() . '">Login</a>'; endif; ?>
+        <p class="footer__meta-copyright">&copy; <?php echo date('Y'); ?>
+			 | All Rights Reserved.
+			| <?php if( is_user_logged_in() ) : echo '<a href="' . wp_logout_url() . '">Logout</a>'; else : echo '<a href="' . wp_login_url() . '">Login</a>'; endif; ?>
 				</p>
+		</div>
     </footer>
 
 		<?php wp_footer(); ?>

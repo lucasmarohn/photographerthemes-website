@@ -10,6 +10,7 @@
 \*------------------------------------*/
 
 include_once('woocommerce/functions.php');
+require_once('functions/login.php');
 
 /*------------------------------------*\
 	Theme Support
@@ -62,6 +63,55 @@ if (function_exists('add_theme_support'))
 	Functions
 \*------------------------------------*/
 
+function get_CTA_default_link() {
+	$default = [];
+	$default['href'] = get_home_url() . '/get-started';
+	$default['title'] = 'Get Started';
+
+	return $default;
+}
+
+add_action("template_redirect", 'redirection_function');
+function redirection_function(){
+    global $woocommerce;
+    if( is_page('cart') && WC()->cart->cart_contents_count == 0){
+        wp_safe_redirect( get_CTA_default_link()['href'] );
+    }
+}
+
+// define the woocommerce_cart_item_removed callback 
+function action_woocommerce_cart_item_removed( $cart_item_key, $instance ) { 
+    redirection_function();
+}; 
+         
+// add the action 
+add_action( 'woocommerce_cart_item_removed', 'action_woocommerce_cart_item_removed', 10, 2 );
+
+//Disabling AJAX for Cart Page..
+function cart_script_disabled(){
+	wp_dequeue_script( 'wc-cart' );
+}
+add_action( 'wp_enqueue_scripts', 'cart_script_disabled' );
+
+function has_children() {
+	global $post;
+	
+	$pages = get_pages('child_of=' . $post->ID);
+	
+	if (count($pages) > 0):
+	  return true;
+	else:
+	  return false;
+	endif;
+  }
+  function is_top_level() {
+	global $post, $wpdb;
+	
+	$current_page = $wpdb->get_var("SELECT post_parent FROM $wpdb->posts WHERE ID = " . $post->ID);
+	
+	return $current_page;
+  }
+
 // HTML5 Blank navigation
 function html5blank_nav()
 {
@@ -92,23 +142,30 @@ function html5blank_header_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
+		wp_enqueue_script('jquery');
+
     	wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
         wp_enqueue_script('conditionizr'); // Enqueue it!
 
         wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
-        wp_enqueue_script('modernizr'); // Enqueue it!
+		wp_enqueue_script('modernizr'); // Enqueue it!
+		
+		wp_register_script('rellax', get_template_directory_uri() . '/js/rellax.min.js', array('jquery'), '1.0.0'); // Custom scripts
+		wp_enqueue_script('rellax'); // Enqueue it!
+		
+        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery', 'rellax'), '1.0.0'); // Custom scripts
+		wp_enqueue_script('html5blankscripts'); // Enqueue it!
+		
 
-        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
-        wp_enqueue_script('html5blankscripts'); // Enqueue it!
     }
 }
 
 // Load HTML5 Blank conditional scripts
-function html5blank_conditional_scripts()
+function pt_conditional_scripts()
 {
-    if (is_page('pagenamehere')) {
-        wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
-        wp_enqueue_script('scriptname'); // Enqueue it!
+    if (false) {
+        wp_register_script('single-product', get_template_directory_uri() . '/js/single-product.js', array('jquery'), '1.0.0'); // Conditional script(s)
+        wp_enqueue_script('single-product'); // Enqueue it!
     }
 }
 
@@ -116,7 +173,10 @@ function html5blank_conditional_scripts()
 function html5blank_styles()
 {
     wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
-    wp_enqueue_style('normalize'); // Enqueue it!
+	wp_enqueue_style('normalize'); // Enqueue it!
+	
+	wp_register_style('fonts', 'https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap', array(), '1.0', 'all');
+    wp_enqueue_style('fonts'); // Enqueue it!
 
     wp_register_style('photographerTheme', get_template_directory_uri() . '/stylesheets/critical.css', array(), '1.0', 'all');
     wp_enqueue_style('photographerTheme'); // Enqueue it!
@@ -353,7 +413,7 @@ function html5blankcomments($comment, $args, $depth)
 
 // Add Actions
 add_action('init', 'html5blank_header_scripts'); // Add Custom Scripts to wp_head
-add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditional Page Scripts
+add_action('wp_print_scripts', 'pt_conditional_scripts'); // Add Conditional Page Scripts
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
@@ -521,9 +581,9 @@ add_action( 'init', 'pt_theme', 0 );
 
 function shortcode_button($args) {
 	if(! $args['external']) {
-		return ('<a href="' . get_home_url() . $args['href'] . '" class="button">' . $args['title'] . '</a>');
+		return ('<a href="' . get_home_url() . $args['href'] . '" class="button '. $args['classes'] .'">' . $args['title'] . '</a>');
 	} else {
-		return ('<a href="' . $args['href'] . '" class="button">' . $args['title'] . '</a>');
+		return ('<a href="' . $args['href'] . '" class="button '. $args['classes'] .'">' . $args['title'] . '</a>');
 	}
 }
 add_shortcode( 'button', 'shortcode_button' );

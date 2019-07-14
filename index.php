@@ -1,7 +1,7 @@
 <?php get_header(); ?>
+	<?php include('content_sections/hero.php'); ?>
 
 	<main role="main" class="resources__page">
-	<h1 class="resources__index__title"><?php _e( 'Resources', 'html5blank' ); ?></h1>
 		<!-- section -->
 		<section class="resources__index">
 		

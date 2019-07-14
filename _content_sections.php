@@ -23,9 +23,15 @@
 
 		<?php elseif ( get_row_layout() == 'testimonial' ) : ?>
 			<?php include('content_sections/testimonials.php'); ?>
-
+			
+		<?php elseif ( get_row_layout() == 'feature' ) : ?>
+			<?php include('content_sections/features.php'); ?>
 		<?php endif; ?>
 	<?php endwhile; ?>
 <?php else: ?>
-	<?php // no layouts found ?>
+<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
+	<section role="main" class="container">
+		<?php the_content(); ?>
+	</section>
+	<?php endwhile; endif; ?>
 <?php endif; ?>

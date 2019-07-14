@@ -37,7 +37,9 @@ if($item_count % 4 == 0) {
         <div class="col--single single--<?php echo $card_align; ?>">
     <?php endif; ?>
             <?php $card_image = get_sub_field( 'card_image' ); if($card_image) :?>
+            <div class="card__media">
                 <img src="<?php echo $card_image['url']; ?>" alt="" class="card__image">
+            </div>
             <?php endif; ?>
             
             <div class="card__copy">
